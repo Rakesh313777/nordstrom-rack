@@ -73,6 +73,15 @@
 
     document.querySelector("#navibar_set").innerHTML = navibar_set()
 
+    var signindatalist = JSON.parse(localStorage.getItem("signindatalist"));
+
+    if (signindatalist != null) {
+
+        document.querySelector("#sin").innerHTML = `<h3><a href="profile.html">Profile >  welcome </a></h3`
+        document.querySelector("#sin1").textContent = signindatalist.name
+        
+        document.querySelector("#sig").innerHTML = `<h3><a href="cart.html">Cart</a></h3>`
+    }
 
     import { footerDiv } from "./components/footer.js"
 

@@ -30,37 +30,35 @@
             <p>Use one sign-in across our brands</p>
         </div>
 
-        <p><span style="color: red ;">*</span>Required</p>
-
-        <h5 id="emai_edit">Email</h5>
-
-        <div id="edit_email">
-            <p id="recieve_email"></p>
-            <h6 style="cursor: pointer;">Edit</h6>
-        </div>
         <form id="user_formm">
 
             <h5>First name <span style="color: red ;">*</span></h5>
-            <input type="text" id="Name">
+            <input type="text" id="name">
             <h5>Last name <span style="color: red ;">*</span></h5>
-            <input type="text" id="Surname">
+            <input type="text" id="surname">
+            <h5>Email <span style="color: red ;">*</span></h5>
+            <input type="text" id="email">
             <h5>Create password <span style="color: red ;">*</span></h5>
             <div id="password_div">
-                <input type="password" id="Password">
+                <input type="password" id="password">
                 <h5 style="cursor: pointer; margin-top: 15px;" onclick="myFunction()">Show</h5>
             </div>
 
+
+            <div id="check">
+                <input type="checkbox" id="chkbox">
+                <p>Keep me signed in. <span
+                        style="cursor: pointer;color: rgb(12,152,187);text-decoration: underline ;">Details</span></p>
+            </div>
+            <p>By tapping Next, you agree to our <span
+                    style=" cursor: pointer; color:rgb(12,152,187);text-decoration: underline;">Privacy Policy</span>
+                and
+                <span style="color:rgb(12,152,187); cursor: pointer;text-decoration: underline"> Terms &
+                    Conditions.</span>
+            </p>
+            <input id="submit" type="submit">
+
         </form>
-        <div id="check">
-            <input type="checkbox" id="chkbox">
-            <p>Keep me signed in. <span
-                    style="cursor: pointer;color: rgb(12,152,187);text-decoration: underline ;">Details</span></p>
-        </div>
-        <p>By tapping Next, you agree to our <span
-                style=" cursor: pointer; color:rgb(12,152,187);text-decoration: underline;">Privacy Policy</span> and
-            <span style="color:rgb(12,152,187); cursor: pointer;text-decoration: underline"> Terms & Conditions.</span>
-        </p>
-        <button onclick="validation(event) ">Create Account</button>
     </div>
 
     <div class="container">
@@ -96,7 +94,7 @@
     document.querySelector("#navibar_set").innerHTML = navibar_set()
 
 
-     import { footerDiv } from "./components/footer.js"
+    import { footerDiv } from "./components/footer.js"
 
     document.querySelector(".footerDiv").innerHTML = footerDiv()
 

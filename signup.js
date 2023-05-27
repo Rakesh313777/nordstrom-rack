@@ -1,84 +1,40 @@
+var signupdatalist = JSON.parse(localStorage.getItem("signupdatalist")) || [];
 
 
-let EMail = document.getElementById('recieve_email').value;
+var form = document.querySelector("#user_formm")
+form.addEventListener("submit", myfunction)
 
+function myfunction() {
+  event.preventDefault()
 
+  var data = {
+    name: user_formm.name.value,
+    surname: user_formm.surname.value,
+    emailname: user_formm.email.value,
+    password: user_formm.password.value
+  }
 
-let email =JSON.parse(localStorage.getItem('userEmail'));
+  var flag = false;
 
+  for (var i = 0; i < signupdatalist.length; i++) {
 
-recieve_email.innerText = email[0].email ;
-
-
-// console.log(email[0].email);
-
-
-
-
-let arr = [];
-
-
-
-function User_detail(Name,Surname,Password){
-   
-    this.name = Name;
-    this.surname = Surname;
-    this.pass = Password;
-
-} 
-
-
-
-
-
-function submitDetails(e){
-   e.preventDefault(); 
-   let form = document.getElementById("user_formm");
-    let name = form.Name.value;
-    let surname = form.Surname.value;
-    let pass = form.Password.value;
-
-      let p = new User_detail( name, surname, pass);
-      arr.push(p);
-      localStorage.setItem('user',JSON.stringify(arr));
-
-      
-console.log(arr);
-
-}
-
-
-function  validation(e){
-
-    if(document.getElementById("Name").value == '' && document.getElementById("Surname").value.length == '' && document.getElementById("Password").value.length == '' )
-{
-    alert("All Field Required")
-}else{
-    submitDetails(event);
-    alert("Successfully signup")
-    window.location.href="index.html"
-}
-}
-
-
-function myFunction() {
-    var x = document.getElementById("Password");
-    if (x.type === "password") {
-      x.type = "text";
-    } else {
-      x.type = "password";
+    if (signupdatalist[i].emailname == data.emailname) {
+      flag = true;
+      break;
     }
   }
 
+  if (flag) {
+    alert("already user signedUp");
+    window.location.reload();
+  }
+  else {
+    signupdatalist.push(data);
+    localStorage.setItem("signupdatalist", JSON.stringify(signupdatalist))
 
-  function  validationnn(e){
+    window.location.href = "login.html"
+    alert("signup succesfully");
+  }
 
-    if(document.getElementById("bottom_email").value == '' )
-{
-    alert("Field Required")
-}else{
-    submitDetails(event);
-    alert("Successfully signup")
-    window.location.href="index.html"
-}
+
 }
